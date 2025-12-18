@@ -18,7 +18,7 @@ Do you know in advance what meals you want to cook this week? Then just feed the
 ## Configure the meals file
 
 The program takes in argument the name of the file that contains the selectable meals with their ingredients.
-This file must be a YAML file and follow a specific syntax. An example file (`meals_and_ingredients.yaml`) is provided. The syntax is the following :
+This file must be a YAML file and follow a specific syntax. An example file ([`src/main/resources/meals.yaml`](src/main/resources/meals.yaml)) is provided. The syntax is the following :
 
 ```yaml
 - meal: the name of a meal
