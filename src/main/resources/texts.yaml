@@ -1,0 +1,6 @@
+introduce_available_meals: "Available meals:"
+prompt_user: "Enter the numbers of the meals you want to make, separating them with a space:"
+try_again: "Please try again:"
+you_didnt_choose_any_meal: "You didn't choose any meal."
+introduce_selected_meals: "You chose the following meals:"
+introduce_required_ingredients: "Here are the required ingredients:"
