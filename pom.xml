@@ -38,6 +38,12 @@
       <artifactId>junit-jupiter-params</artifactId>
       <scope>test</scope>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.yaml/snakeyaml -->
+    <dependency>
+      <groupId>org.yaml</groupId>
+      <artifactId>snakeyaml</artifactId>
+      <version>2.5</version>
+    </dependency>
   </dependencies>
 
   <build>
@@ -62,18 +68,19 @@
           <artifactId>maven-surefire-plugin</artifactId>
           <version>3.3.0</version>
         </plugin>
-        <plugin>
-          <artifactId>maven-jar-plugin</artifactId>
-          <version>3.4.2</version>
-          <configuration>
-            <archive>
-              <manifest>
-                <addClasspath>true</addClasspath>
-                <mainClass>com.foodshoppinglist.Main</mainClass>
-              </manifest>
-            </archive>
-          </configuration>
-        </plugin>
+        <!-- The maven-jar-plugin plugin is not necessary because there's the maven-assembly-plugin -->
+<!--        <plugin>-->
+<!--          <artifactId>maven-jar-plugin</artifactId>-->
+<!--          <version>3.4.2</version>-->
+<!--          <configuration>-->
+<!--            <archive>-->
+<!--              <manifest>-->
+<!--                <addClasspath>true</addClasspath>-->
+<!--                <mainClass>com.foodshoppinglist.Main</mainClass>-->
+<!--              </manifest>-->
+<!--            </archive>-->
+<!--          </configuration>-->
+<!--        </plugin>-->
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
           <version>3.1.2</version>
@@ -93,5 +100,31 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <plugins>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.8.0</version>
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+          <appendAssemblyId>false</appendAssemblyId> <!-- prevents descriptor suffix from appearing in the name of the jar -->
+          <archive>
+            <manifest>
+              <mainClass>com.foodshoppinglist.Main</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+        <executions>
+          <execution>
+            <id>make-assembly</id>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
   </build>
 </project>
