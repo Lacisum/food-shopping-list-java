@@ -63,14 +63,4 @@ public class Utils {
         }
         return inputStream;
     }
-
-    /**
-     * Prints a file format error.
-     *
-     * @param fileName the name of the file
-     * @param exceptionMessage the message of the FileFormatException
-     */
-    public static void printFileFormatException(String fileName, String exceptionMessage) {
-        System.err.println("Error in " + fileName + ": " + exceptionMessage);
-    }
 }
