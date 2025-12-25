@@ -1,215 +1,206 @@
-- meal: salade de patates
-  ingredients:
-    patates:
-      quantity: 1.5
-      unit: kg
-    salade:
-      quantity: 0.1
-      unit: kg
-    échalotte:
-      quantity: 1
-      unit: unit
-    huile:
-      quantity: 2
-      unit: c à s
-    vinaigre:
-      quantity: 1
-      unit: c à s
-    sel:
-      quantity: 5
-      unit: pincée
-    poivre:
-      quantity: 5
-      unit: pincée
+salade de patates:
+  patates:
+    quantity: 1.5
+    unit: kg
+  salade:
+    quantity: 0.1
+    unit: kg
+  échalotte:
+    quantity: 1
+    unit: unit
+  huile:
+    quantity: 2
+    unit: c à s
+  vinaigre:
+    quantity: 1
+    unit: c à s
+  sel:
+    quantity: 5
+    unit: pincée
+  poivre:
+    quantity: 5
+    unit: pincée
 
-- meal: patates sautées
-  ingredients:
-    patates:
-      quantity: 1.5
-      unit: kg
-    salade:
-      quantity: 0.1
-      unit: kg
-    tofu:
-      quantity: 400
-      unit: g
-    échalotte:
-      quantity: 1
-      unit: unit
-    huile:
-      quantity: 8
-      unit: c à s
-    vinaigre:
-      quantity: 1
-      unit: c à s
-    sel:
-      quantity: 10
-      unit: pincée
-    poivre:
-      quantity: 20
-      unit: pincée
+patates sautées:
+  patates:
+    quantity: 1.5
+    unit: kg
+  salade:
+    quantity: 0.1
+    unit: kg
+  tofu:
+    quantity: 400
+    unit: g
+  échalotte:
+    quantity: 1
+    unit: unit
+  huile:
+    quantity: 8
+    unit: c à s
+  vinaigre:
+    quantity: 1
+    unit: c à s
+  sel:
+    quantity: 10
+    unit: pincée
+  poivre:
+    quantity: 20
+    unit: pincée
 
-- meal: riz cantonnais
-  ingredients:
-    riz:
-      quantity: 400
-      unit: g
-    petits pois:
-      quantity: 500
-      unit: g
-    saucisse de soja:
-      quantity: 2
-      unit: unit
-    huile:
-      quantity: 5
-      unit: c à s
-    sel:
-      quantity: 5
-      unit: pincée
+riz cantonnais:
+  riz:
+    quantity: 400
+    unit: g
+  petits pois:
+    quantity: 500
+    unit: g
+  saucisse de soja:
+    quantity: 2
+    unit: unit
+  huile:
+    quantity: 5
+    unit: c à s
+  sel:
+    quantity: 5
+    unit: pincée
 
-- meal: tofu basquaise
-  ingredients:
-    tofu:
-      quantity: 200
-      unit: g
-    riz:
-      quantity: 400
-      unit: g
-    tomates:
-      quantity: 7
-      unit: unit
-    ognon :
-      quantity: 1
-      unit: unit
-    gousse d'ail:
-      quantity: 1
-      unit: unit
-    poivron:
-      quantity: 1
-      unit: unit
-    huile:
-      quantity: 4
-      unit: c à s
-    paprika moulu:
-      quantity: 5
-      unit: pincée
-    piment moulu:
-      quantity: 5
-      unit: pincée
+tofu basquaise:
+  tofu:
+    quantity: 200
+    unit: g
+  riz:
+    quantity: 400
+    unit: g
+  tomates:
+    quantity: 7
+    unit: unit
+  ognon :
+    quantity: 1
+    unit: unit
+  gousse d'ail:
+    quantity: 1
+    unit: unit
+  poivron:
+    quantity: 1
+    unit: unit
+  huile:
+    quantity: 4
+    unit: c à s
+  paprika moulu:
+    quantity: 5
+    unit: pincée
+  piment moulu:
+    quantity: 5
+    unit: pincée
 
-- meal: rizotto
-  ingredients:
-    riz:
-      quantity: 400
-      unit: g
-    ognon:
-      quantity: 1
-      unit: unit
-    sauce provençale:
-      quantity: 1
-      unit: L
-    tofu:
-      quantity: 400
-      unit: g
+risotto:
+  riz:
+    quantity: 400
+    unit: g
+  ognon:
+    quantity: 1
+    unit: unit
+  sauce provençale:
+    quantity: 1
+    unit: L
+  tofu:
+    quantity: 400
+    unit: g
 
-- meal: chili aux protéines de soja texturées
-  ingredients:
-    riz:
-      quantity: 400
-      unit: g
-    protéines de soja texturées:
-      quantity: 100
-      unit: g
-    sauce provençale:
-      quantity: 1
-      unit: L
-    haricots rouges:
-      quantity: 400
-      unit: g
-    maïs:
-      quantity: 100
-      unit: g
-    poivron:
-      quantity: 1
-      unit: unit
-    paprika moulu:
-      quantity: 5
-      unit: pincée
-    piment moulu:
-      quantity: 5
-      unit: pincée
+chili aux protéines de soja texturées:
+  riz:
+    quantity: 400
+    unit: g
+  protéines de soja texturées:
+    quantity: 100
+    unit: g
+  sauce provençale:
+    quantity: 1
+    unit: L
+  haricots rouges:
+    quantity: 400
+    unit: g
+  maïs:
+    quantity: 100
+    unit: g
+  poivron:
+    quantity: 1
+    unit: unit
+  paprika moulu:
+    quantity: 5
+    unit: pincée
+  piment moulu:
+    quantity: 5
+    unit: pincée
 
-- meal: couscous
-  ingredients:
-    semoule:
-      quantity: 600
-      unit: g
-    courgette:
-      quantity: 1
-      unit: unit
-    carotte:
-      quantity: 2
-      unit: unit
-    tomates:
-      quantity: 5
-      unit: unit
-    ognon:
-      quantity: 1
-      unit: unit
-    pois chiches:
-      quantity: 100
-      unit: g
-    piment moulu:
-      quantity: 5
-      unit: pincée
-    ras-el-hanout:
-      quantity: 5
-      unit: pincée
-    huile:
-      quantity: 5
-      unit: c à s
-    sel:
-      quantity: 5
-      unit: pincée
+couscous:
+  semoule:
+    quantity: 600
+    unit: g
+  courgette:
+    quantity: 1
+    unit: unit
+  carotte:
+    quantity: 2
+    unit: unit
+  tomates:
+    quantity: 5
+    unit: unit
+  ognon:
+    quantity: 1
+    unit: unit
+  pois chiches:
+    quantity: 100
+    unit: g
+  piment moulu:
+    quantity: 5
+    unit: pincée
+  ras-el-hanout:
+    quantity: 5
+    unit: pincée
+  huile:
+    quantity: 5
+    unit: c à s
+  sel:
+    quantity: 5
+    unit: pincée
 
-- meal: tartiflette
-  ingredients:
-    patates:
-      quantity: 1.15
-      unit: kg
-    tofu:
-      quantity: 200
-      unit: g
-    ognon:
-      quantity: 1
-      unit: unit
-    bouillon de légumes:
-      quantity: 1
-      unit: unit
-    maïzena:
-      quantity: 4
-      unit: c à s
-    crème de soja:
-      quantity: 200
-      unit: mL
-    levure maltée:
-      quantity: 2
-      unit: c à s
-    poivre:
-      quantity: 5
-      unit: pincée
-    sel:
-      quantity: 5
-      unit: pincée
-    huile:
-      quantity: 5
-      unit: c à s
+tartiflette:
+  patates:
+    quantity: 1.15
+    unit: kg
+  tofu:
+    quantity: 200
+    unit: g
+  ognon:
+    quantity: 1
+    unit: unit
+  bouillon de légumes:
+    quantity: 1
+    unit: unit
+  maïzena:
+    quantity: 4
+    unit: c à s
+  crème de soja:
+    quantity: 200
+    unit: mL
+  levure maltée:
+    quantity: 2
+    unit: c à s
+  poivre:
+    quantity: 5
+    unit: pincée
+  sel:
+    quantity: 5
+    unit: pincée
+  huile:
+    quantity: 5
+    unit: c à s
 
-- meal: pâtes au tofu
-  ingredients:
-    pâtes:
-      quantity: 500
-      unit: g
-    tofu:
-      quantity: 400
-      unit: g
+pâtes au tofu:
+  pâtes:
+    quantity: 500
+    unit: g
+  tofu:
+    quantity: 400
+    unit: g
