@@ -18,25 +18,23 @@ Do you know in advance what meals you want to cook this week? Then just feed the
 ## Configure the meals file
 
 The program takes in argument the name of the file that contains the selectable meals with their ingredients.
-This file must be a YAML file and follow a specific syntax. An example file ([`src/main/resources/meals.yaml`](src/main/resources/meals.yaml)) is provided. The syntax is the following :
+This file must be a YAML file and follow a specific syntax. An example file ([`meals.yaml`](meals.yaml)) is provided. The syntax is the following :
 
 ```yaml
-- meal: the name of a meal
-  ingredients:
-    an ingredient:
-      quantity: 3
-      unit: kg
-    another ingredient:
-      quantity: 1
-      unit: unit
-- meal: the name of another meal
-  ingredients:
-    an ingredient:
-      quantity: 2
-      unit: kg
-    yet another ingredient:
-      quantity: 5
-      unit: pinch
+the name of a meal:
+  an ingredient:
+    quantity: 3
+    unit: kg
+  another ingredient:
+    quantity: 1
+    unit: unit
+the name of another meal:
+  an ingredient:
+    quantity: 2
+    unit: kg
+  yet another ingredient:
+    quantity: 5
+    unit: pinch
 ```
 
 If some ingredient doesn't have a unit, then type `unit` in the `unit` field (as shown in the example above).  
