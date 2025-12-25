@@ -1,5 +1,7 @@
 package com.foodshoppinglist;
 
+import java.util.List;
+
 /**
  * The main class of the program.
  */
@@ -28,5 +30,8 @@ public class Main {
             System.err.println(e.getMessage());
             System.exit(1);
         }
+
+        List<String> availableMealsNames = mealsHandler.getAvailableMealsNames();
+        frontendHandler.printAvailableMeals(availableMealsNames);
     }
 }

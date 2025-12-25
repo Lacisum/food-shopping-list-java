@@ -133,4 +133,13 @@ public class MealsHandler {
         return meals;
     }
 
+    /**
+     * Returns the list of the names of the available meals, in lexicographic order.
+     *
+     * @return the list of the names of the available meals, in lexicographic order.
+     */
+    public List<String> getAvailableMealsNames() {
+        return meals.keySet().stream().sorted().toList();
+    }
+
 }

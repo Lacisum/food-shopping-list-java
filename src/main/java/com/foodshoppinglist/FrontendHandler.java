@@ -1,5 +1,6 @@
 package com.foodshoppinglist;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -7,8 +8,11 @@ import java.util.Map;
  */
 public class FrontendHandler {
 
+    // The text assets keys
+    public static final String INTRODUCE_AVAILABLE_MEALS = "introduce_available_meals";
+
     /** The text assets. */
-     final Map<String, String> textAssets;
+    private final Map<String, String> textAssets;
 
 
 
@@ -48,4 +52,16 @@ public class FrontendHandler {
         }
     }
 
+    /**
+     * Prints the provided list of names of available meals.
+     *
+     * @param availableMealsNames the list of names of available meals
+     */
+    public void printAvailableMeals(List<String> availableMealsNames) {
+        IO.println();
+        IO.println(textAssets.get(INTRODUCE_AVAILABLE_MEALS));
+        for (int i = 0; i < availableMealsNames.size(); i++)
+            IO.println((i + 1) + ". " + availableMealsNames.get(i));
+        IO.println();
+    }
 }
