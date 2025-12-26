@@ -7,8 +7,8 @@ import java.util.Map;
 
 public class MealsHandler {
 
-     final Map<String, Map<String, IngredientAmount>> meals;
-//    private final List<String> selectedMeals;
+    private final Map<String, Map<String, IngredientAmount>> meals;
+    private List<String> selectedMealsNames;
 
 
 
@@ -16,7 +16,8 @@ public class MealsHandler {
     /**
      * Builds a <code>MealsHandler</code>
      *
-     * @param mealsFile the file that contains the meals with the description of the list of their
+     * @param mealsFile the file that contains the meals with the description of
+     *                  the list of their ingredients
      * @throws FileFormatException if the file is not correctly formatted
      */
     public MealsHandler(String mealsFile) throws FileFormatException {
@@ -35,7 +36,7 @@ public class MealsHandler {
      * @param content the content of the file
      * @throws FileFormatException if the content is not correctly formatted
      */
-    static void checkFileFormat(String fileName, Object content) throws FileFormatException {
+    public static void checkFileFormat(String fileName, Object content) throws FileFormatException {
         String errorPrefix = "Error in " + fileName + ": ";
 
         // Associates each ingredient with a map that associates units used for
@@ -58,20 +59,34 @@ public class MealsHandler {
             for (Map.Entry<Object, Object> ingredientEntry : ingredients.entrySet()) {
 
                 if (! (ingredientEntry.getKey() instanceof String ingredientName))
-                    throw new FileFormatException(errorPrefix + "ingredient '" + ingredientEntry.getKey() + "' in meal '" + mealName + "' is not a string");
+                    throw new FileFormatException(
+                            errorPrefix + "ingredient '" + ingredientEntry.getKey() + "' in meal '" + mealName + "' is not a string"
+                    );
                 if (! (ingredientEntry.getValue() instanceof Map<?, ?>))
-                    throw new FileFormatException(errorPrefix + "value of ingredient '" + ingredientName + "' in meal '" + mealName + "' is not a dictionary");
+                    throw new FileFormatException(
+                            errorPrefix + "value of ingredient '" + ingredientName + "' in meal '" + mealName + "' is not a dictionary"
+                    );
                 Map<Object, Object> ingredientAmount = (Map<Object, Object>) ingredientEntry.getValue();
                 if (! ingredientAmount.containsKey("quantity"))
-                    throw new FileFormatException(errorPrefix + "ingredient '" + ingredientName + "' in meal '" + mealName + "' misses the key 'quantity'");
+                    throw new FileFormatException(
+                            errorPrefix + "ingredient '" + ingredientName + "' in meal '" + mealName + "' misses the key 'quantity'"
+                    );
                 if (! (ingredientAmount.get("quantity") instanceof Integer) && ! (ingredientAmount.get("quantity") instanceof Double))
-                    throw new FileFormatException(errorPrefix + "key 'quantity' of ingredient '" + ingredientName + "' in meal '" + mealName + "' is not a number");
+                    throw new FileFormatException(
+                            errorPrefix + "key 'quantity' of ingredient '" + ingredientName + "' in meal '" + mealName + "' is not a number")
+                            ;
                 if (! ingredientAmount.containsKey("unit"))
-                    throw new FileFormatException(errorPrefix + "ingredient '" + ingredientName + "' in meal '" + mealName + "' misses the key 'unit'");
+                    throw new FileFormatException(
+                            errorPrefix + "ingredient '" + ingredientName + "' in meal '" + mealName + "' misses the key 'unit'"
+                    );
                 if (! (ingredientAmount.get("unit") instanceof String ingredientUnit))
-                    throw new FileFormatException(errorPrefix + "key 'unit' of ingredient '" + ingredientName + "' in meal '" + mealName + "' is not a string");
+                    throw new FileFormatException(
+                            errorPrefix + "key 'unit' of ingredient '" + ingredientName + "' in meal '" + mealName + "' is not a string"
+                    );
                 if (ingredientAmount.size() != 2)
-                    throw new FileFormatException(errorPrefix + "ingredient '" + ingredientName + "' in meal '" + mealName + "' has one or several keys that are not 'quantity' or 'unit'");
+                    throw new FileFormatException(
+                            errorPrefix + "ingredient '" + ingredientName + "' in meal '" + mealName + "' has one or several keys that are not 'quantity' or 'unit'"
+                    );
 
                 // this is used to check that each ingredient uses exactly one unit across the whole file
                 if (! ingredientsUnits.containsKey(ingredientName))
@@ -105,11 +120,14 @@ public class MealsHandler {
 
 
     /**
-     * Converts the content to a structured object, with a robust and practical type.
+     * Converts the content to a structured object, with a robust and practical
+     * type.
      * The returned object is a new object.
      *
-     * @param content the content of the meals file as it was delivered by the file reader
-     * @return a map associating each meal name to a map associating each ingredient to its amount
+     * @param content the content of the meals file as it was delivered by the
+     *                file reader
+     * @return a map associating each meal name to a map associating each
+     * ingredient to its amount
      */
     private static Map<String, Map<String, IngredientAmount>> convertToStructuredObject(Object content) {
         Map<String, Map<String, IngredientAmount>> meals = new HashMap<>();
@@ -134,12 +152,23 @@ public class MealsHandler {
     }
 
     /**
-     * Returns the list of the names of the available meals, in lexicographic order.
+     * Returns the list of the names of the available meals, in lexicographic
+     * order.
      *
-     * @return the list of the names of the available meals, in lexicographic order.
+     * @return the list of the names of the available meals, in lexicographic
+     * order.
      */
     public List<String> getAvailableMealsNames() {
         return meals.keySet().stream().sorted().toList();
     }
 
+    /**
+     * Sets the <code>selectedMealsNames</code> attribute to the given value.
+     *
+     * @param selectedMealsNames the value to affect to the
+     *                           <code>selectedMealsNames</code> attribute
+     */
+    public void setSelectedMealsNames(List<String> selectedMealsNames) {
+        this.selectedMealsNames = selectedMealsNames;
+    }
 }

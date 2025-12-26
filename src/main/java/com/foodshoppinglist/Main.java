@@ -33,5 +33,15 @@ public class Main {
 
         List<String> availableMealsNames = mealsHandler.getAvailableMealsNames();
         frontendHandler.printAvailableMeals(availableMealsNames);
+
+        List<String> selectedMealsNames = frontendHandler.getSelectedMealsFromUserInput(availableMealsNames);
+        mealsHandler.setSelectedMealsNames(selectedMealsNames);
+
+        if (selectedMealsNames.isEmpty()) {
+            frontendHandler.printYouDidntChooseAnyMeal();
+            return;
+        }
+
+        frontendHandler.printSelectedMeals(selectedMealsNames);
     }
 }
