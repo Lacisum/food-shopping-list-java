@@ -22,15 +22,16 @@ public class Main {
 
         // load text assets and meals
         FrontendHandler frontendHandler = null;
-        MealsHandler mealsHandler = null;
+        Object mealsFileContent = null;
         try {
             frontendHandler = new FrontendHandler(TEXT_ASSETS_FILE_NAME);
-            mealsHandler = new MealsHandler(mealsFile);
+            mealsFileContent = new MealsFileReader(mealsFile).load();
         } catch (FileFormatException e) {
             System.err.println(e.getMessage());
             System.exit(1);
         }
 
+        MealsHandler mealsHandler = new MealsHandler(mealsFileContent);
         List<String> availableMealsNames = mealsHandler.getAvailableMealsNames();
         frontendHandler.printAvailableMeals(availableMealsNames);
 
