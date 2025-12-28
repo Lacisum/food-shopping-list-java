@@ -2,9 +2,9 @@
 
 
 - [Presentation](#presentation)
-- [Configure the meals file](#configure-the-meals-file)
 - [Requirements](#requirements)
 - [Run the program](#run-the-program)
+- [Configure the meals file](#configure-the-meals-file)
 - [Run the tests](#run-the-tests)
 
 
@@ -12,6 +12,34 @@
 ## Presentation
 
 Do you know in advance what meals you want to cook this week? Then just feed the program with the names of those meals. You will be given the list of ingredients (with their quantities) you need to buy.
+
+
+
+
+<a name="Requirements"></a>
+## Requirements
+
+Make sure that you have Java 25.
+
+
+
+
+<a name="RunTheProgram"></a>
+## Run the program
+
+The program takes a "meals file" in argument.
+A meals file is a file that lists meals with their required ingredients.
+The section [Configure the meals file](#configure-the-meals-file) explains how to write a meals file.
+
+For convenience, a default meals file called [`meals.yaml`](meals.yaml) is provided to you.
+To run the program with it, type:
+
+```bash
+mvn package
+java -jar target/food-shopping-list.jar meals.yaml
+```
+
+
 
 
 <a name="ConfigureTheMealsFile"></a>
@@ -37,7 +65,7 @@ the name of another meal:
     unit: pinch
 ```
 
-If some ingredient doesn't have a unit, then type `unit` in the `unit` field (as shown in the example above).  
+If some ingredient doesn't have a unit, then you can just type `unit` in the `unit` field (as shown in the example above).  
 
 Throughout the file, make sure that:
 - a given ingredient or unit is always written the exact same way
@@ -47,20 +75,6 @@ Throughout the file, make sure that:
     - example: using `kg` then `g` for `flour` won't work
 
 
-<a name="Requirements"></a>
-## Requirements
-
-Make sure that you have Java 25.
-
-<a name="RunTheProgram"></a>
-## Run the program
-
-To run the program with the default file (you can replace it with any file), type:
-
-```bash
-mvn package
-java -jar target/food-shopping-list.jar meals.yaml
-```
 
 
 <a name="RunTheTests"></a>
