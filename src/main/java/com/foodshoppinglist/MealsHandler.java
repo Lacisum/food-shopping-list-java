@@ -77,4 +77,48 @@ public class MealsHandler {
     public void setSelectedMealsNames(List<String> selectedMealsNames) {
         this.selectedMealsNames = selectedMealsNames;
     }
+
+    /**
+     * Computes the totals of each ingredient needed for cooking the selected
+     * meals.
+     *
+     * @return a map that associates the names of the ingredients needed for the
+     * selected meals to their needed amount (quantity and unit).
+     */
+    public Map<String, IngredientAmount> getIngredientsTotals() {
+        // do the computation with a map of map (i.e. without IngredientAmount, hence why the suffix "WithOnlyMap")
+        Map<String, Map<String, Object>> ingredientsTotalsWithOnlyMaps = new HashMap<>();
+        for (String selectedMealName : selectedMealsNames) {
+            for (Map.Entry<String, IngredientAmount> ingredientEntry : meals.get(selectedMealName).entrySet()) {
+                String ingredientName = ingredientEntry.getKey();
+                IngredientAmount ingredientAmount = ingredientEntry.getValue();
+                ingredientsTotalsWithOnlyMaps.merge(
+                        ingredientName,
+                        Map.of(
+                                "quantity", ingredientAmount.quantity(),
+                                "unit", ingredientAmount.unit()
+                        ),
+                        (oldAmount, newAmount) -> Map.of(
+                                "quantity", (Float) oldAmount.get("quantity") + (Float) newAmount.get("quantity"),
+                                "unit", oldAmount.get("unit")
+                        )
+                );
+            }
+        }
+
+        // convert Map<String, Object> to IngredientAmount
+        Map<String, IngredientAmount> ingredientsTotals = new HashMap<>();
+        for (Map.Entry<String, Map<String, Object>> ingredientEntry : ingredientsTotalsWithOnlyMaps.entrySet()) {
+            String ingredientName = ingredientEntry.getKey();
+            Map<String, Object> ingredientAmount = ingredientEntry.getValue();
+            ingredientsTotals.put(
+                    ingredientName,
+                    new IngredientAmount(
+                            (float) ingredientAmount.get("quantity"),
+                            (String) ingredientAmount.get("unit")
+                    )
+            );
+        }
+        return ingredientsTotals;
+    }
 }

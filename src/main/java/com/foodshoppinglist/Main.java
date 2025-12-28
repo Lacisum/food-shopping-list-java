@@ -1,6 +1,7 @@
 package com.foodshoppinglist;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * The main class of the program.
@@ -44,5 +45,8 @@ public class Main {
         }
 
         frontendHandler.printSelectedMeals(selectedMealsNames);
+
+        Map<String, IngredientAmount> ingredientsTotals = mealsHandler.getIngredientsTotals();
+        frontendHandler.printIngredientsTotals(ingredientsTotals);
     }
 }

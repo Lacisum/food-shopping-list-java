@@ -17,6 +17,7 @@ public class FrontendHandler {
     private static final String TRY_AGAIN = "try_again";
     private static final String YOU_DIDNT_CHOOSE_ANY_MEAL = "you_didnt_choose_any_meal";
     private static final String INTRODUCE_SELECTED_MEALS = "introduce_selected_meals";
+    private static final String INTRODUCE_REQUIRED_INGREDIENTS = "introduce_required_ingredients";
 
     /** The text assets. */
     private final Map<String, String> textAssets;
@@ -163,6 +164,53 @@ public class FrontendHandler {
         for (String mealName : selectedMealsNames)
             IO.println("- " + mealName);
         IO.println();
+    }
+
+    /**
+     * Prints the total for each ingredient required by the selected meals.
+     * <p/>
+     * It is assumed that the provided map of ingredients is not empty.
+     *
+     * @param ingredientsTotals a map that associates each ingredient name to its needed quantity
+     */
+    public void printIngredientsTotals(Map<String, IngredientAmount> ingredientsTotals) {
+        IO.println(textAssets.get(INTRODUCE_REQUIRED_INGREDIENTS));
+        int maximumLengthForAnIngredientName = ingredientsTotals.keySet().stream()
+                .mapToInt(String::length)
+                .max()
+                .getAsInt(); // it is assumed that there is at least one ingredient
+        for (String ingredientName : ingredientsTotals.keySet()) {
+            IngredientAmount ingredientAmount = ingredientsTotals.get(ingredientName);
+            printIngredientsTotalsLine(
+                    ingredientName,
+                    ingredientAmount.quantity(),
+                    ingredientAmount.unit(),
+                    maximumLengthForAnIngredientName
+            );
+        }
+    }
+
+    /**
+     * Prints an ingredient with its quantity.
+     *
+     * @param ingredientName the name of the ingredient
+     * @param quantity the quantity of the ingredient
+     * @param unit the unit of the quantity
+     * @param maximumLengthForAnIngredientName the maximum length for an
+     *                                         ingredient name
+     */
+    private void printIngredientsTotalsLine(
+            String ingredientName,
+            Float quantity,
+            String unit,
+            int maximumLengthForAnIngredientName) {
+        String padding = ".".repeat(maximumLengthForAnIngredientName + 4 - ingredientName.length());
+        IO.println(("- %s%s%s %s").formatted(
+                ingredientName,
+                padding,
+                quantity == quantity.intValue() ? (Number) quantity.intValue() : quantity,
+                unit
+        ));
     }
 
     /**
